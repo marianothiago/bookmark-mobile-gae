@@ -22,19 +22,12 @@
 
 			<pm:content>
 				<h:form>
-					<h:panelGrid columns="3">  
-             				<h:outputLabel for="description" value="#{messages['bookmark.label.description']}:" />  
-             				<p:inputText id="description"  
-                 						 value="#{bookmarkEditMB.bean.description}" required="true">  
-             				</p:inputText>  
-             				<p:message for="description" />  
+					<p:inputText id="description"  label="#{messages['bookmark.label.description']}:"
+                 						 value="#{bookmarkEditMB.bean.description}" required="true"/>  
                
-             				<h:outputLabel for="link" value="#{messages['bookmark.label.link']}:" />  
-             				<p:inputText id="link"   
-                 						 value="#{bookmarkEditMB.bean.link}" required="true">  
-             				</p:inputText>  
-             				<p:message for="link" />  
-       				</h:panelGrid>
+             	    <p:inputText id="link"   label="#{messages['bookmark.label.link']}:"
+                 						 value="#{bookmarkEditMB.bean.link}" required="true"/>  
+                 						 
 					<pm:buttonGroup orientation="horizontal" >
 						<p:commandButton value="#{messages['button.save']}"
 							action="#{bookmarkEditMB.update}" icon="check"
