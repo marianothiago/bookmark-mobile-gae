@@ -1,0 +1,55 @@
+<f:view xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pm="http://primefaces.org/mobile"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/template/main.xhtml" contentType="text/html"
+	renderKitId="PRIMEFACES_MOBILE">
+
+	<pm:page title="Edição de Bookmark">
+
+		<!-- Main View -->
+
+		<pm:view id="main">
+			<pm:header title="Edição" swatch="b">
+				<f:facet name="left">
+					<p:button style="width:10; height:30; border:1px solid #000;"
+						value="#{messages['button.back']}" icon="back"
+						href="#{bookmarkEditMB.previousView}" />
+				</f:facet>
+			</pm:header>
+
+			<pm:content>
+				<h:form>
+					<h:panelGrid columns="3">  
+             				<h:outputLabel for="description" value="#{messages['bookmark.label.description']}:" />  
+             				<p:inputText id="description"  
+                 						 value="#{bookmarkEditMB.bean.description}" required="true">  
+             				</p:inputText>  
+             				<p:message for="description" />  
+               
+             				<h:outputLabel for="link" value="#{messages['bookmark.label.link']}:" />  
+             				<p:inputText id="link"   
+                 						 value="#{bookmarkEditMB.bean.link}" required="true">  
+             				</p:inputText>  
+             				<p:message for="link" />  
+       				</h:panelGrid>
+					<pm:buttonGroup orientation="horizontal" >
+						<p:commandButton value="#{messages['button.save']}"
+							action="#{bookmarkEditMB.update}" icon="check"
+							iconPosition="center" />
+
+						<p:commandButton value="#{messages['button.delete']}"
+							action="#{bookmarkEditMB.delete}"
+							rendered="#{bookmarkEditMB.updateMode}" icon="delete"
+							iconPosition="center" />
+					</pm:buttonGroup>
+				</h:form>
+			</pm:content>
+
+		</pm:view>
+
+	</pm:page>
+</f:view>
+
