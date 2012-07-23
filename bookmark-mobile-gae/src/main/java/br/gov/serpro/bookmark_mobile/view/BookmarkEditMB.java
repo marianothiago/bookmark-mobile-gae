@@ -5,8 +5,6 @@ import javax.inject.Inject;
 import br.gov.frameworkdemoiselle.annotation.PreviousView;
 import br.gov.frameworkdemoiselle.stereotype.ViewController;
 import br.gov.frameworkdemoiselle.template.AbstractEditPageBean;
-import br.gov.frameworkdemoiselle.transaction.Transactional;
-
 import br.gov.serpro.bookmark_mobile.business.BookmarkBC;
 import br.gov.serpro.bookmark_mobile.domain.Bookmark;
 
@@ -20,21 +18,18 @@ public class BookmarkEditMB extends AbstractEditPageBean<Bookmark, Long> {
 	private BookmarkBC bookmarkBC;
 
 	@Override
-	@Transactional
 	public String delete() {
 		this.bookmarkBC.delete(getId());
 		return getPreviousView();
 	}
 
 	@Override
-	@Transactional
 	public String insert() {
 		this.bookmarkBC.insert(getBean());
 		return getPreviousView();
 	}
 
 	@Override
-	@Transactional
 	public String update() {
 		this.bookmarkBC.update(getBean());
 		return getPreviousView();

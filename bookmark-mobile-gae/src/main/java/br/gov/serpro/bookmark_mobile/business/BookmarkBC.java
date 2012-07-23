@@ -3,8 +3,6 @@ package br.gov.serpro.bookmark_mobile.business;
 import br.gov.frameworkdemoiselle.annotation.Startup;
 import br.gov.frameworkdemoiselle.stereotype.BusinessController;
 import br.gov.frameworkdemoiselle.template.DelegateCrud;
-import br.gov.frameworkdemoiselle.transaction.Transactional;
-
 import br.gov.serpro.bookmark_mobile.domain.Bookmark;
 import br.gov.serpro.bookmark_mobile.persistence.BookmarkDAO;
 
@@ -14,7 +12,6 @@ public class BookmarkBC extends DelegateCrud<Bookmark, Long, BookmarkDAO> {
 	private static final long serialVersionUID = 1L;
 	
 	@Startup
-	@Transactional
 	public void load() {
 		if (findAll().isEmpty()) {
 			insert(new Bookmark("Demoiselle Portal", "http://www.frameworkdemoiselle.gov.br"));
